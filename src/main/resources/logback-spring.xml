@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 日志配置 -->
+<configuration scan="true" scanPeriod="60 seconds" debug="false">
+
+    <!-- 引入默认配置 -->
+    <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+
+    <!-- 引入配置控制台(CONSOLE) -->
+    <include resource="org/springframework/boot/logging/logback/console-appender.xml"/>
+
+    <!-- console
+        输出到控制台
+    -->
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>
+                %d{yyyy-MM-dd HH:mm:ss.SSS} %clr(%-5level) %boldMagenta(${PID}) --- %red([%thread]) %cyan(%-50logger{50}) : %msg%n
+            </pattern>
+            <charset>utf8</charset>
+        </encoder>
+    </appender>
+
+    <!-- logFile
+        配置输出到文件的日志
+    -->
+    <appender name="logFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <Prudent>true</Prudent>
+        <append>true</append>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- 日志生成路径：在设置的日志目录下，按天命名 -->
+            <FileNamePattern>
+                ${LOG_PATH}/%d{yyyy-MM-dd}.log
+            </FileNamePattern>
+        </rollingPolicy>
+        <encoder>
+            <pattern>
+                %d{yyyy-MM-dd HH:mm:ss.SSS} %clr(%-5level) %boldMagenta(${PID}) --- %red([%thread]) %cyan(%-50logger{50}) : %msg%n
+            </pattern>
+            <charset>utf8</charset>
+        </encoder>
+    </appender>
+
+
+    <!-- 开发环境日志配置 -->
+    <springProfile name="dev">
+        <root level="DEBUG">
+            <appender-ref ref="console" />
+        </root>
+    </springProfile>
+
+    <!-- 测试环境日志配置 -->
+    <springProfile name="test">
+        <root level="WARN">
+            <appender-ref ref="console" />
+            <appender-ref ref="logFile" />
+        </root>
+    </springProfile>
+
+    <!-- 生产环境日志配置 -->
+    <springProfile name="prod">
+        <!-- 只输出日志到文件中 -->
+        <root level="WARN">
+            <appender-ref ref="logFile" />
+        </root>
+    </springProfile>
+
+</configuration>
+
