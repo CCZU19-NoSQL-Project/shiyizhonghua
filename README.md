@@ -5,7 +5,14 @@
 
 ## 项目地址
 
+
 http://47.98.214.74:8081/
+
+## 资源文件仓库
+
+> 资源文件仓库包括nosql数据库文件 、项目文档和PPT等。
+
+https://github.com/CCZU19-NoSQL-Project/shiyizhonghua_resource.git
 
 ## 开发环境
 

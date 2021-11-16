@@ -6,7 +6,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 /**
  * @ClassName: HomeController
- * @Description: TODO add a description
+ * @Description: 主页控制类，加载主页面
  * @Author: zhuaowei
  * @Date: 2021/10/29
  * @Version: 1.0

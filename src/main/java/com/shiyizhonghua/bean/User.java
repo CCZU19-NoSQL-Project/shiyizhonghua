@@ -1,24 +1,28 @@
 package com.shiyizhonghua.bean;
 
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * @ClassName: User
- * @Description: TODO add a description
+ * @Description: 用户信息实体类
  * @Author: zhuaowei
  * @Date: 2021/11/1
  * @Version: 1.0
  */
 
-@TableName("user")
+@Entity
+@Table(name = "user")
 @Data
-public class User {
+public class User implements Serializable {
 
     /** 用户id */
-    @TableId
+    @Id
     private String id;
 
     /** 用户名，登录名 */
