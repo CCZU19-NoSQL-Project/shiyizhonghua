@@ -19,8 +19,13 @@ public enum Status {
     ERROR(5000,"登录失败"),
     NO_USERNAME(4000,"用户名不能为空"),
     NO_PASSWORD(4001,"密码不能为空"),
+    NO_NICKNAME(4002,"昵称不能为空"),
     ACCOUNT_NOT_EXIST(4003,"账户不存在"),
     NO_USER(4004,"用户不存在"),
+    WRONG_PASSWORD(4005, "密码不匹配"),
+    REGISTER_ERROR(5001, "注册失败"),
+    REGISTER_SUCCESS(2001, "注册成功"),
+    USER_EXISTS(5002, "用户名已存在"),
     //我不理解...
     VALID_FAILE(2535,"");
 

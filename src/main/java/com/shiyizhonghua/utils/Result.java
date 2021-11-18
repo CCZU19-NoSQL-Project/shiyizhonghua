@@ -8,6 +8,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.sql.ResultSet;
+
 /**
  * @ClassName: Result
  * @Description: 统一前后端的交互数据格式
@@ -53,8 +55,32 @@ public class Result {
     public static Result noPassword(){
         return makeResult(Status.NO_PASSWORD, null);
     }
+
+    public static Result noNickName(){
+        return makeResult(Status.NO_NICKNAME, null);
+    }
+
     public static Result noUser(){
         return makeResult(Status.NO_USER, null);
     }
 
+    public static Result wrongPass(){
+        return makeResult(Status.WRONG_PASSWORD, null);
+    }
+
+    public static Result registerError(){
+        return makeResult(Status.REGISTER_ERROR, null);
+    }
+
+    public static Result registerSuccess(){
+        return makeResult(Status.REGISTER_SUCCESS, null);
+    }
+
+    public static Result registerSuccess(Object data){
+        return makeResult(Status.REGISTER_SUCCESS, data);
+    }
+
+    public static Result userExists(){
+        return makeResult(Status.USER_EXISTS, null);
+    }
 }

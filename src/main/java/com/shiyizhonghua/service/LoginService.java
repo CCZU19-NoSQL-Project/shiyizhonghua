@@ -18,7 +18,7 @@ import com.shiyizhonghua.utils.Result;
 public interface LoginService {
 
     /**
-     *  登录业务
+     *  登录业务接口
      * @param loginDto
      * @return Result
      */

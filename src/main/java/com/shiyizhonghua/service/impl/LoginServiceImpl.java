@@ -54,6 +54,8 @@ public class LoginServiceImpl implements LoginService {
             //return new Result(200, true, "", user);
             System.out.println("result:----" + Result.success(user));
             return Result.success(user);
+        }else if(!(encryPass.equals(user.getPassword()))){
+            return Result.wrongPass();
         }
         return Result.error();
     }

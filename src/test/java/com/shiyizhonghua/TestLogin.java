@@ -24,7 +24,7 @@ public class TestLogin {
     @Resource
     LoginServiceImpl loginServiceImpl;
 
-    LoginDto loginDto = new LoginDto("qshh", "123456");
+    LoginDto loginDto = new LoginDto("qshh", "qyh443012");
 
     @Test
     public void LoginTest(){
