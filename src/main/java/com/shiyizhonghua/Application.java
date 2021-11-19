@@ -1,5 +1,6 @@
 package com.shiyizhonghua;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -11,6 +12,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @Version: 1.0
  */
 
+@MapperScan("com.shiyizhonghua.repository")
 @SpringBootApplication
 public class Application {
 
