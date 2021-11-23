@@ -6,11 +6,14 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.test.context.junit4.SpringRunner;
 
 /**
  * @ClassName: TestPoetry
- * @Description: TODO add a description
+ * @Description: 诗词测试类
  * @Author: zhuaowei
  * @Date: 2021/11/15
  * @Version: 1.0
@@ -18,15 +21,17 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class TestPoetry {
+public class PoetryTest {
 
     @Autowired
     private PoetryRepository poetryRepository;
 
     @Test
     public void testFindOne() {
-        Poetry poetry = poetryRepository.findById("619364cb168d866536127538").get();
-
-        System.out.println(poetry);
+        Pageable pageable = PageRequest.of(1, 10);
+        Page<Poetry> poetries = poetryRepository.findAll(pageable);
+        for (Poetry poetry : poetries.getContent()) {
+            System.out.println("poetry = " + poetry);
+        }
     }
 }

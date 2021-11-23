@@ -3,7 +3,6 @@ package com.shiyizhonghua.service.impl;
 import com.shiyizhonghua.bean.User;
 import com.shiyizhonghua.repository.UserRepository;
 import com.shiyizhonghua.service.UserService;
-import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -13,7 +12,7 @@ import java.util.List;
 
 /**
  * @ClassName: UserServiceImpl
- * @Description: TODO add a description
+ * @Description: 用户服务接口的一个实现类
  * @Author: zhuaowei
  * @Date: 2021/11/12
  * @Version: 1.0

@@ -1,7 +1,9 @@
 package com.shiyizhonghua.bean;
 
-import org.springframework.data.mongodb.core.mapping.Document;
+import lombok.experimental.Accessors;
+import org.springframework.data.elasticsearch.annotations.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
+
 import javax.persistence.Id;
 import java.io.Serializable;
 import java.util.Arrays;
@@ -14,7 +16,8 @@ import java.util.Arrays;
  * @Version: 1.0
  */
 
-@Document("test")
+@Accessors(chain = true)
+@Document(indexName = "shiyizhonghua")
 public class Poetry implements Serializable {
     /** id 唯一标识符 */
     @Id

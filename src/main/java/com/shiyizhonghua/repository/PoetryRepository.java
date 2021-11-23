@@ -1,7 +1,7 @@
 package com.shiyizhonghua.repository;
 
 import com.shiyizhonghua.bean.Poetry;
-import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.data.elasticsearch.repository.ElasticsearchRepository;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -13,5 +13,5 @@ import org.springframework.stereotype.Repository;
  */
 
 @Repository
-public interface PoetryRepository extends MongoRepository<Poetry, String> {
+public interface PoetryRepository extends ElasticsearchRepository<Poetry, String> {
 }
