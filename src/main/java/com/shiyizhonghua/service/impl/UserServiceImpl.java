@@ -18,6 +18,7 @@ import java.util.List;
  * @Version: 1.0
  */
 
+@Service
 public class UserServiceImpl implements UserService {
 
     @Resource
@@ -25,8 +26,9 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Transactional(propagation = Propagation.SUPPORTS)
-    public User createUser(String username, String nickname, String salt, String password) {
+    public User createUser(String id, String username, String nickname, String salt, String password) {
         User user = new User();
+        user.setId(id);
         user.setUsername(username);
         user.setNickname(nickname);
         user.setSalt(salt);
@@ -36,8 +38,8 @@ public class UserServiceImpl implements UserService {
         user.setValid(true);
         user.setCreateTime(new Date());
         user.setUpdateTime(new Date());
-        int index = userRepository.insert(user);
-        User createdUser = userRepository.selectById(index);
+        userRepository.insert(user);
+        User createdUser = userRepository.selectById(id);
 
         // 根据返回的id查询实体对象
         return createdUser;

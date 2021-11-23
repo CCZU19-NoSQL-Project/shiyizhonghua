@@ -12,7 +12,7 @@ import java.util.List;
  * @Date: 2021/11/1
  * @Version: 1.0
  */
-@Service
+
 public interface UserService {
 
     /**
@@ -23,7 +23,7 @@ public interface UserService {
      * @param password 密码
      * @return 返回创建的用户实体对象
      */
-    User createUser(String username, String nickname, String salt, String password);
+    User createUser(String id, String username, String nickname, String salt, String password);
 
     /**
      * 更新用户信息
