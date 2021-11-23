@@ -18,7 +18,6 @@ import java.util.List;
  * @Version: 1.0
  */
 
-@Service
 public class UserServiceImpl implements UserService {
 
     @Resource
