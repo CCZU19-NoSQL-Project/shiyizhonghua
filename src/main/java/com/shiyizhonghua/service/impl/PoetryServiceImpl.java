@@ -1,13 +1,12 @@
 package com.shiyizhonghua.service.impl;
 
-import com.shiyizhonghua.bean.Poetry;
 import com.shiyizhonghua.repository.PoetryRepository;
 import com.shiyizhonghua.service.PoetryService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * @ClassName: PoetryServiceImpl
- * @Description: TODO add a description
+ * @Description: 诗词服务接口的一个实现类
  * @Author: zhuaowei
  * @Date: 2021/11/15
  * @Version: 1.0
@@ -15,12 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 public class PoetryServiceImpl implements PoetryService {
 
+    /** poetryRepository */
     @Autowired
     private PoetryRepository poetryRepository;
-
-    @Override
-    public Poetry findOne() {
-        poetryRepository.findById("");
-        return null;
-    }
 }

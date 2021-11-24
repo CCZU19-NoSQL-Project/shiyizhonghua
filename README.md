@@ -26,6 +26,8 @@ https://github.com/CCZU19-NoSQL-Project/shiyizhonghua_resource.git
 
 - IDEA2021.1
 
+- ElasticSearch7.15.2
+
 ## 技术栈
 
 > 前端
@@ -38,7 +40,7 @@ https://github.com/CCZU19-NoSQL-Project/shiyizhonghua_resource.git
 
 > 后端
 
-- springboot 2.1.7.RELEASE
+- springboot 2.5.5
 
 - spring data jpa
 

@@ -7,7 +7,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 /**
  * @ClassName: TestApplication
- * @Description: Spring Boot 测试类
+ * @Description: Spring Boot 测试类，基础测试
  * @Author: zhuaowei
  * @Date: 2021/10/29
  * @Version: 1.0
@@ -15,7 +15,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class TestApplication {
+public class ApplicationTest {
 
     /**
      * 测试demo，用于测试测试。。。
