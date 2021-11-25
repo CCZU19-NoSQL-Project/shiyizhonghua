@@ -1,4 +1,4 @@
-package com.shiyizhonghua.utils;
+package com.shiyizhonghua.util;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

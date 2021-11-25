@@ -1,21 +1,16 @@
-package com.shiyizhonghua.service.impl;/**
- * @Description:
- * @Author qshh
- * @Date 2021/11/18 11:54
- */
+package com.shiyizhonghua.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.shiyizhonghua.bean.User;
-import com.shiyizhonghua.dto.RegisterDto;
+import com.shiyizhonghua.dto.RegisterDTO;
 import com.shiyizhonghua.repository.UserRepository;
 import com.shiyizhonghua.service.RegisterService;
-import com.shiyizhonghua.utils.Result;
-import com.shiyizhonghua.utils.UUIdUtil;
+import com.shiyizhonghua.util.Result;
+import com.shiyizhonghua.util.UUIdUtil;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.util.DigestUtils;
 import org.springframework.util.StringUtils;
-import org.thymeleaf.expression.Strings;
 
 import javax.annotation.Resource;
 
@@ -26,6 +21,7 @@ import javax.annotation.Resource;
  * @Date: 2021/11/18 11:54
  * @Version: 1.0
  **/
+
 @Service
 public class RegisterServiceImpl implements RegisterService {
 
@@ -36,7 +32,7 @@ public class RegisterServiceImpl implements RegisterService {
     UserServiceImpl userServiceImpl;
 
     @Override
-    public Result register(RegisterDto registerDto) {
+    public Result register(RegisterDTO registerDto) {
         // 获取随机32位id
         String id = UUIdUtil.getUUid();
         String username = registerDto.getUsername();

@@ -12,7 +12,7 @@ import java.util.List;
 
 
 /**
- * @ClassName: TestUser
+ * @ClassName: UserTest
  * @Description: TODO
  * @Author: qshh
  * @Date: 2021/11/16 22:27
@@ -21,13 +21,13 @@ import java.util.List;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class TestUser {
+public class UserTest {
 
     @Resource
-    UserRepository userRepository;
+    private UserRepository userRepository;
 
     @Test
-    public void findAllTest(){
+    public void testFindAll(){
         List<User> users = userRepository.selectList(null);
         for (User user : users){
             System.out.println(user);

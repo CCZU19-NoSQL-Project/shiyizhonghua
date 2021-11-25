@@ -20,6 +20,7 @@ import java.util.List;
 @Controller
 @RequestMapping("poetry")
 public class PoetryController {
+
     @Autowired
     private MongoTemplate mongoTemplate;
 

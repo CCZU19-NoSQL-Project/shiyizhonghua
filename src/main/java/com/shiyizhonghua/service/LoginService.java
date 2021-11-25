@@ -1,11 +1,7 @@
-/**
- * @author qshh
- * @date 2021/11/17 0:01
- */
 package com.shiyizhonghua.service;
 
-import com.shiyizhonghua.dto.LoginDto;
-import com.shiyizhonghua.utils.Result;
+import com.shiyizhonghua.dto.LoginDTO;
+import com.shiyizhonghua.util.Result;
 
 /**
  * @ClassName: LoginService
@@ -22,5 +18,5 @@ public interface LoginService {
      * @param loginDto
      * @return Result
      */
-    public Result login(LoginDto loginDto);
+     Result login(LoginDTO loginDto);
 }

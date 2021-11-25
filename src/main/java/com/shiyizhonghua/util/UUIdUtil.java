@@ -1,8 +1,4 @@
-package com.shiyizhonghua.utils;/**
- * @Description:
- * @Author qshh
- * @Date 2021/11/18 12:12
- */
+package com.shiyizhonghua.util;
 
 import java.util.UUID;
 
