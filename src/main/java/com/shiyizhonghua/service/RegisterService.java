@@ -1,11 +1,7 @@
-/**
- * @author qshh
- * @date 2021/11/18 11:52
- */
 package com.shiyizhonghua.service;
 
-import com.shiyizhonghua.dto.RegisterDto;
-import com.shiyizhonghua.utils.Result;
+import com.shiyizhonghua.dto.RegisterDTO;
+import com.shiyizhonghua.util.Result;
 
 /**
  * @ClassName: RegisterService
@@ -22,5 +18,5 @@ public interface RegisterService {
      * @param registerDto
      * @return
      */
-    public Result register(RegisterDto registerDto);
+     Result register(RegisterDTO registerDto);
 }

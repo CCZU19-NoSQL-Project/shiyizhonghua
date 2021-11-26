@@ -4,7 +4,7 @@ package com.shiyizhonghua;/**
  * @Date 2021/11/18 19:29
  */
 
-import com.shiyizhonghua.dto.RegisterDto;
+import com.shiyizhonghua.dto.RegisterDTO;
 import com.shiyizhonghua.service.impl.RegisterServiceImpl;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -14,7 +14,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import javax.annotation.Resource;
 
 /**
- * @ClassName: TestRegister
+ * @ClassName: RegisterTest
  * @Description: TODO
  * @Author: qshh
  * @Date: 2021/11/18 19:29
@@ -23,14 +23,14 @@ import javax.annotation.Resource;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class TestRegister {
+public class RegisterTest {
 
     @Resource
-    RegisterServiceImpl registerServiceImpl;
+    private RegisterServiceImpl registerServiceImpl;
 
     @Test
-    public void TestRegister(){
-        RegisterDto registerDto = new RegisterDto("qshh", "hhxx", "qyh443012");
+    public void testRegister(){
+        RegisterDTO registerDto = new RegisterDTO("qshh", "hhxx", "qyh443012");
         System.out.println(registerServiceImpl.register(registerDto));
     }
 }

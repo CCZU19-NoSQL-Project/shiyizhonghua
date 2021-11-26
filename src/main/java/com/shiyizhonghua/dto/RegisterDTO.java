@@ -1,15 +1,11 @@
-package com.shiyizhonghua.dto;/**
- * @Description:
- * @Author qshh
- * @Date 2021/11/18 11:42
- */
+package com.shiyizhonghua.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * @ClassName: RegisterDto
+ * @ClassName: RegisterDTO
  * @Description: 注册业务实体类
  * @Author: qshh
  * @Date: 2021/11/18 11:42
@@ -18,7 +14,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class RegisterDto {
+public class RegisterDTO {
 
     private String username;
     private String nickname;

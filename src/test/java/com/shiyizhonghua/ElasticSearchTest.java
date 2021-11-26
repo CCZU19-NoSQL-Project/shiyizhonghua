@@ -17,6 +17,7 @@ import java.io.IOException;
 
 @SpringBootTest
 public class ElasticSearchTest {
+
     @Autowired
     private RestHighLevelClient restHighLevelClient;
 
