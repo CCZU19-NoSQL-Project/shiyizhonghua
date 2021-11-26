@@ -1,14 +1,8 @@
-package com.shiyizhonghua.utils;/**
- * @Description:
- * @Author qshh
- * @Date 2021/11/16 23:45
- */
+package com.shiyizhonghua.util;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.sql.ResultSet;
 
 /**
  * @ClassName: Result

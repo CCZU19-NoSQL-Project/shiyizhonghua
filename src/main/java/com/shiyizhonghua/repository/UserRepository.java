@@ -3,6 +3,7 @@ package com.shiyizhonghua.repository;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.shiyizhonghua.bean.User;
 import org.apache.ibatis.annotations.Select;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -18,7 +19,7 @@ import java.util.List;
 @Repository
 public interface UserRepository extends BaseMapper<User> {
 
-    /**\
+    /**
      * 获取所有用户的用户名
      * @return 返回用户名列表
      */

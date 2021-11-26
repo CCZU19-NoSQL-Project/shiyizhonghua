@@ -1,6 +1,6 @@
 package com.shiyizhonghua;
 
-import com.shiyizhonghua.dto.LoginDto;
+import com.shiyizhonghua.dto.LoginDTO;
 import com.shiyizhonghua.service.impl.LoginServiceImpl;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -10,7 +10,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import javax.annotation.Resource;
 
 /**
- * @ClassName: TestLogin
+ * @ClassName: LoginTest
  * @Description: 登录业务测试类
  * @Author: qshh
  * @Date: 2021/11/18 0:35
@@ -19,15 +19,16 @@ import javax.annotation.Resource;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class TestLogin {
+public class LoginTest {
 
     @Resource
-    LoginServiceImpl loginServiceImpl;
+    private LoginServiceImpl loginServiceImpl;
 
-    LoginDto loginDto = new LoginDto("qshh", "qyh443012");
+
+    LoginDTO loginDto = new LoginDTO("qshh", "qyh443012");
 
     @Test
-    public void LoginTest(){
+    public void testLogin(){
         System.out.println(loginServiceImpl.login(loginDto));
     }
 
