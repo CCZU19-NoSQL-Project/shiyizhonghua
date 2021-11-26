@@ -1,7 +1,6 @@
 package com.shiyizhonghua.service;
 
 import com.shiyizhonghua.bean.User;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 

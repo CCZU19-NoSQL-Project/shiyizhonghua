@@ -15,7 +15,6 @@ import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.util.DigestUtils;
 import org.springframework.util.StringUtils;
-import org.thymeleaf.expression.Strings;
 
 import javax.annotation.Resource;
 
@@ -26,6 +25,7 @@ import javax.annotation.Resource;
  * @Date: 2021/11/18 11:54
  * @Version: 1.0
  **/
+
 @Service
 public class RegisterServiceImpl implements RegisterService {
 

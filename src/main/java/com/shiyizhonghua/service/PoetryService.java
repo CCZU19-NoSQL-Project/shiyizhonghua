@@ -1,7 +1,5 @@
 package com.shiyizhonghua.service;
 
-import org.springframework.stereotype.Service;
-
 /**
  * @ClassName: PoetryService
  * @Description: 诗词服务接口
@@ -10,7 +8,6 @@ import org.springframework.stereotype.Service;
  * @Version: 1.0
  */
 
-@Service
 public interface PoetryService {
 
 }

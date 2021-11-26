@@ -3,6 +3,7 @@ package com.shiyizhonghua.service.impl;
 import com.shiyizhonghua.bean.User;
 import com.shiyizhonghua.repository.UserRepository;
 import com.shiyizhonghua.service.UserService;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -18,6 +19,7 @@ import java.util.List;
  * @Version: 1.0
  */
 
+@Service
 public class UserServiceImpl implements UserService {
 
     @Resource

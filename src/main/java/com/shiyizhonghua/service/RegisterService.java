@@ -14,6 +14,7 @@ import com.shiyizhonghua.utils.Result;
  * @Date: 2021/11/18 11:52
  * @Version: 1.0
  **/
+
 public interface RegisterService {
 
     /**
