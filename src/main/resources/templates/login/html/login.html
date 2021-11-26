@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录</title>
+    <link rel="stylesheet" href="../css/login.css">
+</head>
+<body>
+    <div class="center">
+        <h1>用户登录</h1>
+        <form methon="post">
+            <div class="txt_field">
+                <input type="text" required>
+                <span></span>
+                <label for="">账号</label>
+            </div>
+            <div class="txt_field">
+                <input type="password" required>
+                <span></span>
+                <label for="">密码</label>
+            </div>
+            <div class="pass">忘记密码？</div>
+            <a href="../../index.html"><input type="submit" value="登录"></a>
+            <div class="zhuce_link">
+                <a href="../../register/html/register.html">新用户注册</a>
+            </div>
+            <div class="yanzheng_link">
+                <a href="../../phonelogin/html/phonelogin.html">手机验证码登录</a>
+            </div>
+        </form>
+    </div>
+    <div class="right">
+        <form method="POST">
+            <div class="qrcode">
+                <img src="../img/qrcode.png">
+            </div>
+            <div class="qr">使用app扫码登录</div>
+        </form>
+    </div>
+</body>
+</html>
