@@ -23,16 +23,16 @@ import javax.annotation.Resource;
 public class LoginServiceImpl implements LoginService {
 
     @Resource
-    UserRepository userRepository;
+    private UserRepository userRepository;
 
     @Override
     public Result login(LoginDTO loginDto) {
 
         // 判断前端传入的用户名是否为空
-        if(StringUtils.isEmpty(loginDto.getUsername())){
+        if (StringUtils.isEmpty(loginDto.getUsername())) {
             return Result.noUserName();
         }
-        if (StringUtils.isEmpty(loginDto.getPassword())){
+        if (StringUtils.isEmpty(loginDto.getPassword())) {
             return Result.noPassword();
         }
 
@@ -44,13 +44,12 @@ public class LoginServiceImpl implements LoginService {
         //判断用户密码+salt 经过md5加密后是否与user记录相同
         String encryPass = DigestUtils.md5DigestAsHex((loginDto.getPassword() + user.getSalt()).getBytes());
         System.out.println("md5Pass:" + encryPass);
-        if(user == null){
+
+        if (user == null) {
             return Result.noUser();
-        }else if((encryPass.equals(user.getPassword()))){
-            //return new Result(200, true, "", user);
-            System.out.println("result:----" + Result.success(user));
+        } else if ((encryPass.equals(user.getPassword()))) {
             return Result.success(user);
-        }else if(!(encryPass.equals(user.getPassword()))){
+        } else if (!(encryPass.equals(user.getPassword()))) {
             return Result.wrongPass();
         }
         return Result.error();

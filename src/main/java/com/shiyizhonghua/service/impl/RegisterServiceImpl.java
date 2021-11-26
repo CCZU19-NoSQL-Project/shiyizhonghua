@@ -26,10 +26,10 @@ import javax.annotation.Resource;
 public class RegisterServiceImpl implements RegisterService {
 
     @Resource
-    UserRepository userRepository;
+    private UserRepository userRepository;
 
     @Resource
-    UserServiceImpl userServiceImpl;
+    private UserServiceImpl userServiceImpl;
 
     @Override
     public Result register(RegisterDTO registerDto) {
@@ -41,8 +41,6 @@ public class RegisterServiceImpl implements RegisterService {
         String salt = RandomStringUtils.randomAlphanumeric(10);
         // 对用户密码进行md5加密
         String md5Pass = DigestUtils.md5DigestAsHex((registerDto.getPassword() + salt).getBytes());
-        //User user = userServiceImpl.createUser(id, username, nickname, salt, md5Pass);
-
 
         // 判断前端传入的用户名是否为空
         if(StringUtils.isEmpty(registerDto.getUsername())){

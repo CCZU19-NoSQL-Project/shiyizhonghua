@@ -14,7 +14,7 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public enum Status {
-    /**/
+    /* 状态码极其提示信息 */
     SUCCESS(2000,"登录成功"),
     ERROR(5000,"登录失败"),
     NO_USERNAME(4000,"用户名不能为空"),
