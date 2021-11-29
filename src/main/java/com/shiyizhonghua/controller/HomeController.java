@@ -20,4 +20,20 @@ public class HomeController {
         ModelAndView mav = new ModelAndView("index");
         return mav;
     }
+
+    @GetMapping("/l")
+    public ModelAndView loginInterface() {
+        return new ModelAndView("/user/login.html");
+    }
+
+    @GetMapping("/r")
+    public ModelAndView registerInterface() {
+        return new ModelAndView("/user/register.html");
+    }
+
+    @GetMapping("/phone")
+    public ModelAndView phoneLoginInterface() {
+        return new ModelAndView("/user/phonelogin.html");
+    }
+
 }

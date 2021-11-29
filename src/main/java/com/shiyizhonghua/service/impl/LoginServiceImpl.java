@@ -1,5 +1,11 @@
 package com.shiyizhonghua.service.impl;
 
+/**
+ * @Description:
+ * @Author qshh
+ * @Date 2021/11/17 0:01
+ */
+
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.shiyizhonghua.bean.User;
 import com.shiyizhonghua.dto.LoginDTO;
@@ -19,6 +25,7 @@ import javax.annotation.Resource;
  * @Date: 2021/11/17 0:01
  * @Version: 1.0
  **/
+
 @Service
 public class LoginServiceImpl implements LoginService {
 

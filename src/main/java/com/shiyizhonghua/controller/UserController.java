@@ -7,6 +7,7 @@ import com.shiyizhonghua.service.impl.RegisterServiceImpl;
 import com.shiyizhonghua.util.Result;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
@@ -21,6 +22,7 @@ import javax.servlet.http.HttpServletRequest;
  **/
 
 @RestController
+@RequestMapping("/user")
 public class UserController {
 
     // session字段名
@@ -32,7 +34,7 @@ public class UserController {
     @Resource
     private RegisterServiceImpl registerServiceImpl;
 
-    @PostMapping("/api/login")
+    @PostMapping("login")
     public Result login(@RequestBody LoginDTO loginDto, HttpServletRequest request) {
 
         Result result = loginServiceImpl.login(loginDto);
@@ -43,9 +45,11 @@ public class UserController {
         return result;
     }
 
-    @PostMapping("/api/register")
+    @PostMapping("register")
     public Result register(@RequestBody RegisterDTO registerDto) {
 
         return registerServiceImpl.register(registerDto);
     }
+
+
 }

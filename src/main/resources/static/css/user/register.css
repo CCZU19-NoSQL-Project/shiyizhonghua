@@ -1,0 +1,179 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    margin: 10% auto;
+    padding: 10% auto;
+    font-family: montserrat;
+    background-color:rgb(240,239,226);
+    width: 40rem;
+    height: 25rem;
+    overflow: hidden;
+}
+.center{
+    position: relative;
+    width: 70%;
+    height: 100%;
+    background:rgb(240,239,226);
+    border-radius: 10px;
+    float:left;
+    border: 1px solid silver;
+}
+.center h1{
+    padding: 10px 0 0px 30px;
+    border-bottom: 0px solid silver;
+}
+.center form{
+    padding: 0 40px;
+    box-sizing: border-box;
+}
+form .phone{
+    position: relative;
+    margin: 15px 0;
+}
+.phone select{
+    width: 20%;
+    padding: 0 5px;
+    height: 40px;
+    font-size: 16px;
+    border: none;
+    background: none;
+    outline: none;
+}
+.phone input{
+    width: 75%;
+    padding: 0 5px;
+    height: 40px;
+    font-size: 16px;
+    border: none;
+    background: none;
+    outline: none;
+    border-bottom: 2px solid #adadad;
+}
+.phone span::before{
+    content:'';
+    position:absolute;
+    top: 39px;
+    left: 21.3%;
+    width:0;
+    height: 2px;
+    background: #2691d9;
+    transition: .5s;
+}
+.phone input:focus ~span::before,
+.phone input:valid ~span::before{
+    width:75%;
+}
+
+.yanzhengma{
+    position: relative;
+    margin: 15px 0;
+}
+.yanzhengma input{
+    width: 65%;
+    padding: 0 5px;
+    height: 40px;
+    font-size: 16px;
+    border: none;
+    background: none;
+    outline: none;
+    border-bottom: 2px solid #adadad;
+    -webkit-appearance: button;
+    -webkit-appearance: none;
+    flex: 1;
+}
+.yanzhengma span::before{
+    content:'';
+    position:absolute;
+    top: 40px;
+    left: 0%;
+    width:0;
+    height: 2px;
+    background: #2691d9;
+    transition: .5s;
+}
+.yanzhengma input:focus ~span::before,
+.yanzhengma input:valid ~span::before{
+    width:65%;
+}
+.yanzhengma button{
+    width: 30%;
+    padding: 0 5px;
+    height: 40px;
+    font-size: 16px;
+    border: 1px solid silver;
+    border-radius: 15px;
+    background: rgb(240,239,226);
+    color: #ccc;
+    outline: none;
+    cursor: pointer;
+}
+.setpassword{
+    position: relative;
+    margin: 15px 0;
+}
+.setpassword input{
+    width: 95%;
+    padding: 0 5px;
+    height: 40px;
+    font-size: 16px;
+    border: none;
+    background: none;
+    outline: none;
+    border-bottom: 2px solid #adadad;
+}
+.setpassword span::before{
+    content:'';
+    position:absolute;
+    top: 38px;
+    left: 0%;
+    width:0;
+    height: 2px;
+    background: #2691d9;
+    transition: .5s;
+}
+.setpassword input:focus ~span::before,
+.setpassword input:valid ~span::before{
+    width:95%;
+}
+
+.pdex{
+    margin: 10px 20px 20px 5px;
+    color:#a6a6a6;    
+    text-align: right;
+    font-size: 2px;
+}
+.btn{
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+}
+.btn button{
+    width: 230px;
+    height: 40px;
+    background: rgb(240,239,226);
+    border: 1px solid silver;
+    color: #000;
+    border-radius: 15px;
+    outline: none;
+    font-size: 15px;
+    cursor: pointer;
+}
+.form-button{
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+}
+.form-button span{
+    font-size: 10px;
+}
+.tel-error{
+    color: #f12a2a;
+    display: none;
+    text-align: right;
+    font-size: 10px;
+    padding: 0 5px;
+}

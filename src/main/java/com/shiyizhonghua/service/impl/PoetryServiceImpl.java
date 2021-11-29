@@ -3,6 +3,7 @@ package com.shiyizhonghua.service.impl;
 import com.shiyizhonghua.repository.PoetryRepository;
 import com.shiyizhonghua.service.PoetryService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  * @ClassName: PoetryServiceImpl
@@ -12,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
  * @Version: 1.0
  */
 
+@Service
 public class PoetryServiceImpl implements PoetryService {
 
     /** poetryRepository */
