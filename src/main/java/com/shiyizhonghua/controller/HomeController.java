@@ -23,17 +23,17 @@ public class HomeController {
 
     @GetMapping("/l")
     public ModelAndView loginInterface() {
-        return new ModelAndView("/user/login.html");
+        return new ModelAndView("user/login.html");
     }
 
     @GetMapping("/r")
     public ModelAndView registerInterface() {
-        return new ModelAndView("/user/register.html");
+        return new ModelAndView("user/register.html");
     }
 
     @GetMapping("/phone")
     public ModelAndView phoneLoginInterface() {
-        return new ModelAndView("/user/phonelogin.html");
+        return new ModelAndView("user/phonelogin.html");
     }
 
 }
