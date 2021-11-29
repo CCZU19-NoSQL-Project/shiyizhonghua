@@ -1,10 +1,10 @@
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>诗意中华</title>
-    <link rel="stylesheet" href="../static/css/index.css">
+    <link rel="stylesheet" th:href="@{/css/index.css}">
 </head>
 <body>
     <div class="top">
@@ -12,10 +12,10 @@
             <img src=" ">
         </div>
         <div class="right2">
-            <a href="login/html/login.html">
+            <a href="/l">
                 <button type="button" style="cursor: pointer;width: 70px;height:30px;background-color:rgb(240,239,227);border: none;" >登录</button>
             </a>
-            <a href="register/html/register.html">
+            <a href="/r">
                 <button type="button" style="cursor: pointer;width: 70px;height:30px;background-color:rgb(240,239,227);border: none;">注册</button>
             </a>
         </div>
@@ -42,10 +42,10 @@
     </div>
     <div class="main">
         <div class="leftslogan Floatleft">
-            <img src="../static/image/shi.jpg" alt="">
-            <img src="../static/image/yi.jpg" alt="">
+            <img th:src="@{/img/shi.jpg}" alt="">
+            <img th:src="@{/img/yi.jpg}" alt="">
         </div>
-        <div class="middle Floatleft" style="background-image:url(image/background.jpg);">
+        <div class="middle Floatleft" style="background-image:url(${/img/backgroud.jpg});">
             <div class="middleleft left">
                 <div class="dailyPoem">
                     <div class="title mainStyle">
@@ -76,8 +76,8 @@
             </div>
         </div>
         <div class="rightslogan Floatleft">
-            <img src="../static/image/zhong.jpg" alt="">
-            <img src="../static/image/hua.jpg" alt="">
+            <img th:src="@{/img/zhong.jpg}" alt="">
+            <img th:src="@{/img/hua.jpg}" alt="">
         </div>
     </div>
 </body>
