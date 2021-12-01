@@ -22,7 +22,7 @@ https://github.com/CCZU19-NoSQL-Project/shiyizhonghua_resource.git
   
 - MySQL5.7
 
-- MongoDB5.0
+- MongoDB4.2
 
 - IDEA2021.1
 

@@ -36,3 +36,6 @@ hs_err_pid*
 
 # map reduce output files
 *.crc
+
+# Mac Directory
+.DS_Store
