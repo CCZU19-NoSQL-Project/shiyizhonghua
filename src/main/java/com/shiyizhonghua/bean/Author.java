@@ -1,5 +1,8 @@
 package com.shiyizhonghua.bean;
 
+import org.springframework.data.elasticsearch.annotations.Field;
+import org.springframework.data.elasticsearch.annotations.FieldType;
+
 /**
  * @ClassName: Author
  * @Description: 诗词作者实体类，作为诗词的内嵌文档
@@ -11,9 +14,11 @@ package com.shiyizhonghua.bean;
 public class Author {
 
     /** 作者的名字 */
+    @Field(type = FieldType.Text, analyzer = "ik_max_word_pinyin", searchAnalyzer = "ik_smart_pinyin")
     private String name;
 
     /** 作者所处的朝代 */
+    @Field(type = FieldType.Text)
     private String time;
 
     /** 作者描述 */
