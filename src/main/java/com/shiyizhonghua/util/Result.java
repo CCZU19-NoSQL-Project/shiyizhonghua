@@ -42,6 +42,14 @@ public class Result {
         return makeResult(Status.ERROR,null);
     }
 
+    public static Result error(int code, String msg){
+        Result result = new Result();
+        result.setCode(code);
+        result.setMes(msg);
+        result.setData(null);
+        return result;
+    }
+
     public static Result noUserName(){
         return makeResult(Status.NO_USERNAME, null);
     }

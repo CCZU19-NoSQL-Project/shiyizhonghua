@@ -15,8 +15,8 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum Status {
     /* 状态码极其提示信息 */
-    SUCCESS(2000,"登录成功"),
-    ERROR(5000,"登录失败"),
+    SUCCESS(200,"success"),
+    ERROR(500,"failed"),
     NO_USERNAME(4000,"用户名不能为空"),
     NO_PASSWORD(4001,"密码不能为空"),
     NO_NICKNAME(4002,"昵称不能为空"),
