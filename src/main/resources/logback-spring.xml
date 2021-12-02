@@ -44,7 +44,7 @@
 
     <!-- 开发环境日志配置 -->
     <springProfile name="dev">
-        <root level="DEBUG">
+        <root level="WARN">
             <appender-ref ref="console" />
         </root>
     </springProfile>

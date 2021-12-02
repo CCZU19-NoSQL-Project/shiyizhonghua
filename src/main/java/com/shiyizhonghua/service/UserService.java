@@ -1,6 +1,9 @@
 package com.shiyizhonghua.service;
 
 import com.shiyizhonghua.bean.User;
+import com.shiyizhonghua.dto.LoginDTO;
+import com.shiyizhonghua.dto.RegisterDTO;
+import com.shiyizhonghua.util.Result;
 
 import java.util.List;
 
@@ -41,9 +44,23 @@ public interface UserService {
      */
     User getById(Integer id);
 
-    /**\
+    /**
      *  获取所有用户的用户名
      * @return 返回一个列表，存储所有用户的用户名
      */
     List<String> getAllUsername();
+
+    /**
+     *  登录业务接口
+     * @param loginDto
+     * @return Result
+     */
+    Result login(LoginDTO loginDto);
+
+    /**
+     * 注册业务接口
+     * @param registerDto
+     * @return
+     */
+    Result register(RegisterDTO registerDto);
 }
