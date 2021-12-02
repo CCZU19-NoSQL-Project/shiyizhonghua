@@ -2,8 +2,7 @@ package com.shiyizhonghua.controller;
 
 import com.shiyizhonghua.dto.LoginDTO;
 import com.shiyizhonghua.dto.RegisterDTO;
-import com.shiyizhonghua.service.impl.LoginServiceImpl;
-import com.shiyizhonghua.service.impl.RegisterServiceImpl;
+import com.shiyizhonghua.service.impl.UserServiceImpl;
 import com.shiyizhonghua.util.Result;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -28,16 +27,14 @@ public class UserController {
     // session字段名
     public static final String SESSION_NAME = null;
 
-    @Resource
-    private LoginServiceImpl loginServiceImpl;
 
     @Resource
-    private RegisterServiceImpl registerServiceImpl;
+    private UserServiceImpl userServiceImpl;
 
     @PostMapping("login")
     public Result login(@RequestBody LoginDTO loginDto, HttpServletRequest request) {
 
-        Result result = loginServiceImpl.login(loginDto);
+        Result result = userServiceImpl.login(loginDto);
         //登录成功，将用户数据写入session
         if (result.getData() != null) {
             request.getSession().setAttribute(SESSION_NAME, result.getData());
@@ -48,7 +45,7 @@ public class UserController {
     @PostMapping("register")
     public Result register(@RequestBody RegisterDTO registerDto) {
 
-        return registerServiceImpl.register(registerDto);
+        return userServiceImpl.register(registerDto);
     }
 
 

@@ -1,7 +1,7 @@
 package com.shiyizhonghua;
 
 import com.shiyizhonghua.dto.LoginDTO;
-import com.shiyizhonghua.service.impl.LoginServiceImpl;
+import com.shiyizhonghua.service.impl.UserServiceImpl;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -22,14 +22,14 @@ import javax.annotation.Resource;
 public class LoginTest {
 
     @Resource
-    private LoginServiceImpl loginServiceImpl;
+    private UserServiceImpl userServiceImpl;
 
 
     LoginDTO loginDto = new LoginDTO("qshh", "qyh443012");
 
     @Test
     public void testLogin(){
-        System.out.println(loginServiceImpl.login(loginDto));
+        System.out.println(userServiceImpl.login(loginDto));
     }
 
 }

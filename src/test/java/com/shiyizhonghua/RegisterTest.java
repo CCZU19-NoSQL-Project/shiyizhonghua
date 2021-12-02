@@ -5,7 +5,7 @@ package com.shiyizhonghua;/**
  */
 
 import com.shiyizhonghua.dto.RegisterDTO;
-import com.shiyizhonghua.service.impl.RegisterServiceImpl;
+import com.shiyizhonghua.service.impl.UserServiceImpl;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -26,11 +26,11 @@ import javax.annotation.Resource;
 public class RegisterTest {
 
     @Resource
-    private RegisterServiceImpl registerServiceImpl;
+    private UserServiceImpl userServiceImpl;
 
     @Test
     public void testRegister(){
         RegisterDTO registerDto = new RegisterDTO("qshh", "hhxx", "qyh443012");
-        System.out.println(registerServiceImpl.register(registerDto));
+        System.out.println(userServiceImpl.register(registerDto));
     }
 }
