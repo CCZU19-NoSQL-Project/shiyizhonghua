@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>手机验证码登录</title>
+    <link rel="stylesheet" href="../css/phonelogin.css">
+</head>
+<body>
+    <div class="center">
+        <h1>验证码登录</h1>
+        <form action="" method="POST">
+            <div>
+                <div class="phone">
+                    <select class="caidan">
+                        <option value ="+86">+86</option>
+                    </select>
+                    <input type="text" placeholder="手机号/邮箱" required id="tel">
+                    <span></span>
+                </div>
+                <div class="tel-error" id="telError">请输入正确的手机号</div>
+                <div class="yanzhengma">
+                    <input type="text" placeholder="验证码" required>
+                    <span></span>
+                    <button id="ver">获取验证码</button>
+                </div>
+                <div class="btn"> 
+                    <a href="../../main/index.html"><button>登录</button></a>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script type="text/javascript">
+    let ver = document.getElementById("ver"),
+        tel = document.getElementById("tel"),
+        telError = document.getElementById('telError'),
+        num = 5,
+        telReg = /^1[3456789]\d{9}$/;
+    
+    ver.onclick = function(){
+    
+        if( telReg.test( tel.value ) ){
+            telError.style.display = 'none';
+            ver.style.background = 'silver'
+            ver.style.color = '#000';
+            settime(ver);
+        }else{
+            telError.style.display = 'block';
+        }
+    }
+    
+    function settime(el){
+        if(num==0){
+            el.removeAttribute("disabled");
+            el.innerHTML = '获取验证码';
+            num=5;
+            return;
+        }else{
+            el.setAttribute("disabled",true);
+            el.innerHTML = num+"s后再获取";
+            num--;
+        }
+            
+        setTimeout(function(){
+            settime(el);
+        },1000);
+    }
+    </script>
+</body>
+</html>

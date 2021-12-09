@@ -1,0 +1,231 @@
+*{
+	margin: 0;
+	padding: 0;
+    list-style-type: none;
+}
+body{
+    background-color: rgb(209,209,174);
+}
+a{
+	text-decoration: none;
+}
+ul{
+	list-style: none;
+}
+.main{
+    width: 100%;
+}
+.main .leftslogan,.main .rightslogan{
+    height: 1000px;
+    width: 25%;
+    /* background-color: red; */
+}
+.main .middle{
+    width: 50%;
+    height: 1000px;
+    background-position: center;
+    background-size: cover;
+}
+.Floatleft{
+    float: left;
+}
+/* .main div{
+    float: left;
+} */
+.main .leftslogan,.main .rightslogan{
+    height: 1000px;
+    width: 25%;
+    /* background-color: red; */
+}
+.middleleft {
+    width: 50%;
+    height: 1000px;
+    /* background-color: green; */
+}
+.middleright{
+    width: 50%;
+    height: 1000px;
+    /* background-color: black; */
+}
+.leftslogan img ,.rightslogan img{
+    width: 400px;
+    display: block;
+    margin: auto;
+}
+.left{
+    float: left;
+}
+.dailyPoem{
+    width: 500px;
+    margin: auto;
+    /* background-color: rgb(255, 0, 0); */
+}
+.title{
+    padding-left: 40px;
+    height: 50px;
+    line-height: 50px;
+    background-color: rgb(25, 231, 94);
+    margin: 30px;
+}
+.mainStyle{
+    background-color: rgb(240,239,226);
+    border-radius: 10px;
+    margin: 30px;
+    opacity: 0.7;
+}
+.poemInLines{
+    padding: 30px;
+    margin-top:10px;
+    margin: 30px;
+    height: 520px;
+    /* line-height: 510px; */
+    /* display: flex;
+    align-items: center; */
+    position: relative;
+
+}
+/* .poemInLines span{
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 23px; 
+} */
+.poemInLines span{   
+    text-align: center;
+    font-size: larger;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+.poetInLines{
+    padding: 50px;
+    margin-top:10px;
+    margin: 30px;
+    height: 480px;
+}
+.poetInLines p{
+    display: block;
+    margin: auto;
+}
+
+.poetInLines p{   
+    text-align: center;
+    font-size: larger;
+}
+.poetName{
+    display: block;
+    margin-right: 10px;
+}
+.left2{
+    float: left;
+    margin-left: 100px;
+    margin-top: 25px;
+}
+.right2{
+    float: right;
+    padding-right: 100px;
+    margin-top: 25px;
+}
+/*top菜单栏区域的样式 开始*/
+.top{
+    height: 90px;
+    background-color: rgb(209, 209, 174);
+}
+.search{
+    width: 700px;
+    height: 60px;       
+    display: flex;
+    margin: 0 auto;
+}
+.search input{
+    margin-top: 20px;
+    float: left;
+    flex: 4;
+    height:40px;
+    outline:none;
+    border: 1px solid rgb(209, 209, 174);
+    box-sizing: border-box;
+    padding-left: 10px;
+}
+.search button{
+    cursor: pointer;
+    margin-top: 20px;
+    float: right;
+    flex: 1;
+    height: 40px;
+    background-color: rgb(240,239,226);
+    color: black;
+    border-style: none;
+    outline: none;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 15px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 15px;
+}
+.search button i{
+    font-style: normal;
+}
+.search button:hover{
+    font-size: 16px;
+}
+.search select{
+    cursor: pointer;
+    margin-top: 20px;
+    float: right;
+    flex: 1;
+    height: 40px;
+    background-color: rgb(240,239,226);
+    color: black;
+    border-style: none;
+    outline: none;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 0px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 0px;
+}
+.search select option{
+    font-style: normal;
+    text-align: center;
+}
+.search select option:hover{
+    cursor: pointer;
+}
+.nav{
+    height:40px ;
+    background-color: rgb(84, 87, 41);
+}
+.nav .items{
+    height: 40px;
+    line-height: 40px;
+    margin:0 auto; 
+}
+.nav .items li a{
+    color: white;
+    font-size: 18px;
+}
+.nav .items li{
+    float: left;
+    margin: 0px 7.2%;
+    display: block;
+    background-color:  rgb(84, 87, 41);
+}
+.nav .items li a:hover{
+    color: black;
+}
+.nav .items li:hover{
+    background-color: white;
+    border-radius: 10px;
+    opacity: 0.5;
+}
+.container{
+	width: 100%;
+	margin: 0 auto;
+}
+.left{
+    float: left;
+}
+
+
+
+
+
