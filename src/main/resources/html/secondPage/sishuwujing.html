@@ -4,9 +4,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>诗意中华</title>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/sishuwujing.css">
 </head>
 <body>
+    <script src="./jquery-3.6.0.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <div class="top">
         <div class="left2">
             <img src=" ">
@@ -51,61 +56,107 @@
                         四书五经
                     </div>
             </div>
-            <div class="poemList">
+            <div class="poemList" id="app">
                 <div class="poem1">
-                    <div class="biaoti">
-                        <p>大学</p>
+                    <div v-for="poem in poemList">
+                        <div class="biaoti">
+                            <p>{{poem.title}}</p>
+                        </div>
+                        <div class="zuozhe">
+                            <p>{{poem.author.name}}</p>
+                        </div>
+                        <div class="zhengwen" v-for="line in poem.content">
+                            <p>{{line}}</p>
+                        </div><br>
+                        <div class="tumb">
+                            <div class="left"><img src="../image/thumbs-up.svg" alt="" width="36px"></div>
+                            <div class="left" style="margin-left:85px;"><img src="../image/download.svg" alt="" width="36px"></div>
+                            <div class="left" style="margin-left:85px;"><img src="../image/reply.svg" alt="" width="36px"></div> 
+                        </div>
                     </div>
-                    <div class="zhengwen">
-                        <p>总纲<br>
-                            『1』大学之道在明明德，在亲民，在止於至善。<br>
-                            『2』知止而後有定;定而後能静;静而後能安;安而後能虑;虑而後能得。<br>
-                            『3』物有本末;事有终始。知所先後则近道矣。<br>
-                            『4』古之欲明明德於天下者先治其国。欲治其国者先齐其家。欲齐其家者先修其身。欲修其身者先正其心。欲正其心者先诚其意。欲诚其意者先致其知。致知在格物。<br>
-                            『5』物格而後知至。知至而後意诚。意诚而後心正。心正而後身修。身修而後家齐。家齐而後国治。国治而後天下平。<br>
-                            『6』自天子以至於庶人台是皆以修身为本。<br>
-                            『7』其本乱而末治者，否矣。其所厚者薄而其所薄者厚，未之有也。
-                            右经一章，盖孔子之言，而曾子述之;其传十章，则曾子之意，而门人记之也。旧本颇有错简，
-                            今因程子所定，而更考经文，别为序次如左。
-                        </p>
-                    </div><br>
-                </div>
-                <div class="poem2">
-                    <div class="zhengwen">
-                        <p>第一章<br>
-                            「1」康诰日，「克明德。」<br>
-                            「2」大甲日，「顾天之明命。」<br>
-                            「3」帝典日: 「克明峻德。」<br>
-                            「4」皆自明也。右传之首章，释明明德。<br>
-
-                        </p>
-                    </div>
-                </div>
-                <div class="poem3">
-                    <div class="zhengwen">
-                        <p> 第二章<br>
-                            「1」汤之盘铭日: 「苟日新,日日新，又日新。」<br>
-                            「2」康诰曰，「作新民。」<br>
-                            「3」诗日: 「周虽旧邦，其命维新。」<br>
-                            「4」是故君子无所不用其极。右传之二章，释新民。<br>
-                        </p>
+                    <div class="foot">
+                        <nav aria-label="Page navigation">
+                            <ul class="pagination">
+                            <li v-show="index!=0">
+                                <a href="#" aria-label="Previous" @click="down">
+                                <span aria-hidden="true">&laquo;</span>
+                                </a>
+                            </li>
+                            <li v-show="index>3"><a href="javascript:void(0)">...</a></li>
+                            <li v-for="poemIndex in indexList" v-show="Math.abs(poemIndex-index)<3"><a href="javascript:void(0)" @click="synchronize(poemIndex)">{{poemIndex+1}}</a></li>
+                            <li><a href="javascript:void(0)">...</a></li>
+                            <li v-show="index!=999">
+                                <a href="#" aria-label="Next" @click="up">
+                                <span aria-hidden="true">&raquo;</span>
+                                </a>
+                            </li>
+                            </ul>
+                        </nav>
                     </div>
                 </div>
-                <div class="poem4">
-                    <div class="zhengwen">
-                        <p>第三章<br>
-                            [1」诗云，「邦畿千里,惟民所止。」<br>
-                            「2」诗云，「缗蛮黄鸟，止於丘隅。」子日: 「於止，知其所止，可以人而不如鸟乎?」<br>
-                            「3」诗云，「穆穆文王，於缉熙敬止。」为人君，止於仁;为人臣，止於敬;为人子，止於孝;为人父，止於慈;与国人交,止於信。<br>
-                            「4」诗云，「瞻彼淇澳,绿竹猗猗。有斐君子。如切如磋,如琢如磨。瑟兮兮,<br>
-                        </p>
-                    </div>
-                </div>
+                
             </div>
         </div>
         
     </div>
 
     </div>
+    <script>
+        var app = new Vue({
+            el:"#app",
+            data:{
+                poemList:[],
+                author:"",
+                content:[],
+                title:"",
+                index:0,
+                indexList:[],
+            },
+            created:function(){
+                    var that=this;
+                    axios.get("http://zhuaowei.top:8081/poetry/type?type=%E5%8F%A4%E6%96%87&page=0").then
+                    (function(response){
+                        console.log(response.data.data.content);
+                        that.poemList=response.data.data.content;
+                    });
+                    for(let i =0;i<1000;i++){
+                        this.indexList.push(i);
+                    }
+                    console.log(this.indexList)
+                    
+
+                },
+            methods:{
+                up:function(){
+                    this.index++;
+                    console.log(this.index);
+                    this.getPoemList(this.index);
+                },
+                down:function(){
+                    this.index--;
+                    console.log(this.index);
+                    this.getPoemList(this.index);
+                },
+                getPoem:function(){
+                    this.author=this.poemList[0].author.name;
+                    this.content=this.poemList[0].content;
+                    this.title=this.poemList[0].title;
+                },
+                getPoemList:function(index){
+                    var that=this;
+                    axios.get("http://zhuaowei.top:8081/poetry/type?type=%E5%8F%A4%E6%96%87&page="+index).then
+                    (function(response){
+                        console.log(response.data.data.content);
+                        that.poemList=response.data.data.content;
+                    }) 
+                },
+                synchronize:function(index){
+                    this.index=index;
+                    console.log(this.index);
+                    this.getPoemList(index);
+                }
+            }
+        })
+    </script>
 </body>
 </html>
