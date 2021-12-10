@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>注册</title>
+    <link rel="stylesheet" href="../css/register.css">
+</head>
+<body>
+
+    <div class="center">
+        <h1>新用户注册</h1>
+        <form action="" method="POST">
+            <div>
+                <div class="phone">
+                    <select class="caidan">
+                        <option value ="+86">+86</option>
+                    </select>
+                    <input type="text" placeholder="手机号/邮箱" required id="tel">
+                    <span></span>
+                </div>
+                <div class="tel-error" id="telError">请输入正确的手机号</div>
+                <div class="yanzhengma">
+                    <input type="text" placeholder="验证码" required>
+                    <span></span>
+                    <button id="ver">获取验证码</button>
+                </div>
+                
+                <div class="setpassword">
+                    <input type="text" placeholder="设置密码" required>
+                    <span></span>
+                </div>
+                <div class="pdex">密码要求8-16位，至少包含数字、字母、字符两种元素</div>
+
+                <div class="btn"> 
+                    <a href="#"><button>下一步</button></a>
+                </div>
+                <div class="form-button">
+                    <input type="radio" name="">
+                    <span>已阅读并同意<a href="#">《注册服务条款》</a></span>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script type="text/javascript">
+    let ver = document.getElementById("ver"),
+        tel = document.getElementById("tel"),
+        telError = document.getElementById('telError'),
+        num = 5,
+        telReg = /^1[3456789]\d{9}$/;
+
+    ver.onclick = function(){
+
+        if( telReg.test( tel.value ) ){
+            telError.style.display = 'none';
+            ver.style.background = 'silver'
+            ver.style.color = '#000';
+            settime(ver);
+        }else{
+            telError.style.display = 'block';
+        }
+    }
+
+    function settime(el){
+        if(num==0){
+            el.removeAttribute("disabled");
+            el.innerHTML = '获取验证码';
+            num=5;
+            return;
+        }else{
+            el.setAttribute("disabled",true);
+            el.innerHTML = num+"s后再获取";
+            num--;
+        }
+        
+        setTimeout(function(){
+            settime(el);
+        },1000);
+    }
+    
+    
+    
+    </script>
+</body>
+</html>
