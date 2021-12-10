@@ -4,10 +4,7 @@ import com.shiyizhonghua.dto.LoginDTO;
 import com.shiyizhonghua.dto.RegisterDTO;
 import com.shiyizhonghua.service.impl.UserServiceImpl;
 import com.shiyizhonghua.util.Result;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -20,6 +17,7 @@ import javax.servlet.http.HttpServletRequest;
  * @Version: 1.0
  **/
 
+@CrossOrigin
 @RestController
 @RequestMapping("/user")
 public class UserController {
