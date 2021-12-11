@@ -22,7 +22,7 @@ import javax.servlet.http.HttpServletRequest;
 public class UserController {
 
     // session字段名
-    public static final String SESSION_NAME = null;
+    public static final String SESSION_NAME = "userData";
 
 
     @Resource
