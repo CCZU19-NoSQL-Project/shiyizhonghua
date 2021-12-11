@@ -17,7 +17,6 @@ import javax.servlet.http.HttpServletRequest;
  * @Version: 1.0
  **/
 
-@CrossOrigin
 @RestController
 @RequestMapping("/user")
 public class UserController {
