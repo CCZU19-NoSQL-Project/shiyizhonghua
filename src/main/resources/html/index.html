@@ -81,16 +81,4 @@
         </div>
     </div>
 </body>
-<script src="/static/jquery-3.6.0.min.js"></script>
-<script>
-    $("#search").click(function (){
-        $.get("http://zhuaowei.top:8081/poetry/type?type=诗","", function (data){
-            var poetryList = data.data.content;
-            for (var i = 0; i < 10; i++) {
-                console.log(poetryList[0].title);
-            }
-
-        }, "json");
-    })
-</script>
 </html>

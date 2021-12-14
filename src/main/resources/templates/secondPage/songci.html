@@ -1,0 +1,159 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+    <title>诗意中华</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+    <link rel="stylesheet" th:href="@{/css/boottest.css}">
+    <link rel="stylesheet" th:href="@{/css/secondPage/tangshi.css}">
+</head>
+<body>
+    <script th:src="@{/jquery.js/jquery-3.6.0.js}"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <div class="top">
+        <div class="left2">
+            <img src=" ">
+        </div>
+        <div class="right2">
+            <a href="/l">
+                <button type="button" style="cursor: pointer;width: 70px;height:30px;background-color:rgb(240,239,227);border: none;" >登录</button>
+            </a>
+            <a href="/r">
+                <button type="button" style="cursor: pointer;width: 70px;height:30px;background-color:rgb(240,239,227);border: none;">注册</button>
+            </a>
+        </div>
+        <div class="search">
+            <select>
+                <option value="全部">全部</option>
+                <option value="作者">作者</option>
+                <option value="内容">内容</option>
+                <option value="标题">标题</option>
+              </select>
+            <input type="text" placeholder="请输入..." name="" id="" value="" >
+            <button id="search"><a href="/poetry/s"><i>搜索</i></a></button>
+        </div>
+    </div>
+    <div class="nav">
+        <div class="items">          
+                <li><a href="/tang">唐诗</a></li>
+                <li style="float: left;margin: 0px 7.2%;display: block;border-radius: 10px;opacity: 0.5;background-color:  white;"><a href="/song" style="color: black;">宋词</a></li>
+                <li><a href="/yuan">元曲</a></li>
+                <li><a href="/sishu">四书五经</a></li>
+                <li><a href="/lunyu">论语</a></li>
+                <li><a href="/qita" >关于</a></li>
+        </div>
+    </div>
+    <div class="main">
+        <div class="container mainContent">
+            <div class="contentTitle">
+                    <!-- 唐诗大标题 -->
+                    <div class="littleDot Floatleft">
+                        <!-- 唐诗前面的小点 -->
+                    </div>
+                    <div class="bigTitle Floatleft">
+                        宋词
+                    </div>
+            </div>
+            <div class="poemList" id="app">
+                <div class="poem1">
+                    <div v-for="poem in poemList">
+                        <div class="biaoti">
+                            <p>{{poem.title}}</p>
+                        </div>
+                        <div class="zuozhe">
+                            <p>{{poem.author.name}}</p>
+                        </div>
+                        <div class="zhengwen" v-for="line in poem.content">
+                            <p>{{line}}</p>
+                        </div><br>
+                        <p>----------------------------------------------------------</p>
+                    </div>
+                    <div class="foot">
+                        <nav aria-label="Page navigation">
+                            <ul class="pagination">
+                            <li v-show="index!=0">
+                                <a href="#" aria-label="Previous" @click="down">
+                                <span aria-hidden="true">&laquo;</span>
+                                </a>
+                            </li>
+                            <li v-show="index>3"><a href="javascript:void(0)">...</a></li>
+                            <li v-for="poemIndex in indexList" v-show="Math.abs(poemIndex-index)<3"><a href="javascript:void(0)" @click="synchronize(poemIndex)">{{poemIndex+1}}</a></li>
+                            <li><a href="javascript:void(0)">...</a></li>
+                            <li v-show="index!=999">
+                                <a href="#" aria-label="Next" @click="up">
+                                <span aria-hidden="true">&raquo;</span>
+                                </a>
+                            </li>
+                            </ul>
+                        </nav>
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+
+    </div>
+    <script>
+        var app = new Vue({
+            el:"#app",
+            data:{
+                poemList:[],
+                author:"",
+                content:[],
+                title:"",
+                index:0,
+                indexList:[],
+            },
+            created:function(){
+                    var that=this;
+                    axios.get("http://zhuaowei.top:8081/poetry/type?type=%E8%AF%8D&page=0").then
+                    (function(response){
+                        console.log(response.data.data.content);
+                        that.poemList=response.data.data.content;
+                    });
+                    for(let i =0;i<1000;i++){
+                        this.indexList.push(i);
+                    }
+                    console.log(this.indexList)
+                    
+
+                },
+            methods:{
+                up:function(){
+                    this.index++;
+                    console.log(this.index);
+                    this.getPoemList(this.index);
+                },
+                down:function(){
+                    this.index--;
+                    console.log(this.index);
+                    this.getPoemList(this.index);
+                },
+                getPoem:function(){
+                    this.author=this.poemList[0].author.name;
+                    this.content=this.poemList[0].content;
+                    this.title=this.poemList[0].title;
+                },
+                getPoemList:function(index){
+                    var that=this;
+                    axios.get("http://zhuaowei.top:8081/poetry/type?type=%E8%AF%8D&page="+index).then
+                    (function(response){
+                        console.log(response.data.data.content);
+                        that.poemList=response.data.data.content;
+                    }) 
+                },
+                synchronize:function(index){
+                    this.index=index;
+                    console.log(this.index);
+                    this.getPoemList(index);
+                }
+            }
+        })
+    </script>
+</body>
+</html>
