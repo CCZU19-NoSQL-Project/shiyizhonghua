@@ -36,4 +36,33 @@ public class HomeController {
         return new ModelAndView("user/phonelogin.html");
     }
 
+    @GetMapping("/tang")
+    public ModelAndView jumpToTangshi() {
+        return new ModelAndView("secondPage/tangshi.html");
+    }
+
+    @GetMapping("/yuan")
+    public ModelAndView jumpToYuanqu() {
+        return new ModelAndView("secondPage/yuanqu.html");
+    }
+
+    @GetMapping("/song")
+    public ModelAndView jumpToSongci() {
+        return new ModelAndView("secondPage/songci.html");
+    }
+
+    @GetMapping("/sishu")
+    public ModelAndView jumpToSishuwujing() {
+        return new ModelAndView("secondPage/sishuwujing.html");
+    }
+
+    @GetMapping("/qita")
+    public ModelAndView jumpToQita() {
+        return new ModelAndView("secondPage/qita.html");
+    }
+
+    @GetMapping("/lunyu")
+    public ModelAndView jumpToLunyu() {
+        return new ModelAndView("secondPage/lunyu.html");
+    }
 }

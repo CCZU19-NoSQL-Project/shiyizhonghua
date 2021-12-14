@@ -5,6 +5,7 @@ import com.shiyizhonghua.service.PoetryService;
 import com.shiyizhonghua.util.Result;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 
@@ -22,6 +23,12 @@ public class PoetryController {
 
     @Resource
     private PoetryService poetryService;
+
+    @GetMapping("/s")
+    public ModelAndView searchPage() {
+        return new ModelAndView("user/indexDemo.html");
+    }
+
 
     /**\
      * 关键词搜索

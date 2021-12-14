@@ -85,6 +85,10 @@ ul{
     position: relative;
 
 }
+
+#background{
+    background-image: image("static/img/background.jpg");
+}
 /* .poemInLines span{
     display: inline-block;
     vertical-align: middle;

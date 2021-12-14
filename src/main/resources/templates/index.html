@@ -27,17 +27,17 @@
                 <option value="标题">标题</option>
               </select>
             <input type="text" placeholder="请输入..." name="" id="" value="" >
-            <button><i>搜索</i></button>
+            <button><a href="/poetry/s"><i>搜索</i></a></button>
         </div>
     </div>
     <div class="nav">
         <div class="items">          
-                <li><a href="">唐诗</a></li>
-                <li><a href="">宋词</a></li>
-                <li><a href="">元曲</a></li>
-                <li><a href="">四书五经</a></li>
-                <li><a href="">论语</a></li>
-                <li><a href="" >关于</a></li>
+                <li><a href="/tang">唐诗</a></li>
+                <li><a href="/song">宋词</a></li>
+                <li><a href="/yuan">元曲</a></li>
+                <li><a href="/sishu">四书五经</a></li>
+                <li><a href="/lunyu">论语</a></li>
+                <li><a href="/qita" >关于</a></li>
         </div>
     </div>
     <div class="main">
@@ -45,7 +45,7 @@
             <img th:src="@{/img/shi.jpg}" alt="">
             <img th:src="@{/img/yi.jpg}" alt="">
         </div>
-        <div class="middle Floatleft" style="background-image:url(${/img/backgroud.jpg});">
+        <div class="middle Floatleft" id="background">
             <div class="middleleft left">
                 <div class="dailyPoem">
                     <div class="title mainStyle">
@@ -80,5 +80,63 @@
             <img th:src="@{/img/hua.jpg}" alt="">
         </div>
     </div>
+
+<script th:inline="javascript">
+    var app = new Vue({
+        el:"#backgroud",
+        data:{
+            poemList:[],
+            author:"",
+            content:[],
+            title:"",
+            index:0,
+            indexList:[],
+        },
+        created:function(){
+            var that=this;
+            axios.get("http://zhuaowei.top:8081/poetry/type?type=%E6%A5%9A%E8%BE%9E&page=0&limit=10").then
+            (function(response){
+                console.log(response.data.data.content);
+                that.poemList=response.data.data.content;
+            });
+            for(let i =0;i<1000;i++){
+                this.indexList.push(i);
+            }
+            console.log(this.indexList)
+
+
+        },
+        methods:{
+            up:function(){
+                this.index++;
+                console.log(this.index);
+                this.getPoemList(this.index);
+            },
+            down:function(){
+                this.index--;
+                console.log(this.index);
+                this.getPoemList(this.index);
+            },
+            getPoem:function(){
+                this.author=this.poemList[0].author.name;
+                this.content=this.poemList[0].content;
+                this.title=this.poemList[0].title;
+            },
+            getPoemList:function(index){
+                var that=this;
+                axios.get("http://zhuaowei.top:8081/poetry/type?type=%E6%A5%9A%E8%BE%9E&page="+index).then
+                (function(response){
+                    console.log(response.data.data.content);
+                    that.poemList=response.data.data.content;
+                })
+            },
+            synchronize:function(index){
+                this.index=index;
+                console.log(this.index);
+                this.getPoemList(index);
+            }
+        }
+    })
+</script>
 </body>
 </html>
