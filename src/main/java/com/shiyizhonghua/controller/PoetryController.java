@@ -26,7 +26,7 @@ public class PoetryController {
 
     @GetMapping("/s")
     public ModelAndView searchPage() {
-        return new ModelAndView("user/indexDemo.html");
+        return new ModelAndView("user/indexdemo.html");
     }
 
 
