@@ -6,81 +6,82 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>注册</title>
     <link rel="stylesheet" href="../css/register.css">
+    <script src="../js/ajax.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script
+    src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+    crossorigin="anonymous"></script>
 </head>
 <body>
-
+<div id="app">
     <div class="center">
         <h1>新用户注册</h1>
-        <form action="" method="POST">
-            <div>
-                <div class="phone">
-                    <select class="caidan">
-                        <option value ="+86">+86</option>
-                    </select>
-                    <input type="text" placeholder="手机号/邮箱" required id="tel">
-                    <span></span>
-                </div>
-                <div class="tel-error" id="telError">请输入正确的手机号</div>
-                <div class="yanzhengma">
-                    <input type="text" placeholder="验证码" required>
-                    <span></span>
-                    <button id="ver">获取验证码</button>
-                </div>
-                
-                <div class="setpassword">
-                    <input type="text" placeholder="设置密码" required>
-                    <span></span>
-                </div>
-                <div class="pdex">密码要求8-16位，至少包含数字、字母、字符两种元素</div>
-
-                <div class="btn"> 
-                    <a href="#"><button>下一步</button></a>
-                </div>
-                <div class="form-button">
-                    <input type="radio" name="">
-                    <span>已阅读并同意<a href="#">《注册服务条款》</a></span>
-                </div>
+        <form methon="post">
+            <div class="txt_field">
+                <input v-model="nickname" type="text" required>
+                <span></span>
+                <label for="">昵称</label>
+            </div>
+            <div class="txt_field">
+                <input v-model="username" type="text" required>
+                <span></span>
+                <label for="">用户名</label>
+            </div>
+            <div class="txt_field">
+                <input v-model="password" type="password" required>
+                <span></span>
+                <label for="">密码</label>
+            </div>
+            <div class="pdex">密码要求8-16位，至少包含数字、字母、字符两种元素</div>
+            <button type="button" @click="register" id="btn">注册</button>
+            <div class="zhuce_link">
+                <a href="../../login/html/login.html">登录界面</a>
             </div>
         </form>
     </div>
-    <script type="text/javascript">
-    let ver = document.getElementById("ver"),
-        tel = document.getElementById("tel"),
-        telError = document.getElementById('telError'),
-        num = 5,
-        telReg = /^1[3456789]\d{9}$/;
-
-    ver.onclick = function(){
-
-        if( telReg.test( tel.value ) ){
-            telError.style.display = 'none';
-            ver.style.background = 'silver'
-            ver.style.color = '#000';
-            settime(ver);
-        }else{
-            telError.style.display = 'block';
+</div>
+<script>
+    var app = new Vue({
+        el:"#app",
+        data:{
+            nickname:"",
+            username:"",
+            password:""
+        },
+        methods:{
+            register:function(){
+                var that=this;
+                var pack= {"username": that.username, "password": that.password,"nickname":that.nickname};
+                // console.log(JSON.stringify(pack));
+				axios.post("http://zhuaowei.top:8081/user/register", JSON.stringify(pack), {headers: {'content-type': 'application/json;charset=UTF-8'}})
+                .then(function(response){
+                    console.log(response);
+                    if(response.data.code==2001){
+                        alert(response.data.mes);
+                    }else if(response.data.code==5001){
+                        alert(response.data.mes);
+                    }else if(response.data.code==5002){
+                        alert(response.data.mes);
+                    }else if(response.data.code==4000){
+                        alert(response.data.mes);
+                    }else if(response.data.code==4001){
+                        alert(response.data.mes);
+                    }else if(response.data.code==4002){
+                        alert(response.data.mes);
+                    }else if(response.data.code==4003){
+                        alert(response.data.mes);
+                    }else if(response.data.code==4004){
+                        alert(response.data.mes);
+                    }else if(response.data.code==4005){
+                        alert(response.data.mes);
+                    }
+                })
+            }
         }
-    }
+    })
+</script>
 
-    function settime(el){
-        if(num==0){
-            el.removeAttribute("disabled");
-            el.innerHTML = '获取验证码';
-            num=5;
-            return;
-        }else{
-            el.setAttribute("disabled",true);
-            el.innerHTML = num+"s后再获取";
-            num--;
-        }
-        
-        setTimeout(function(){
-            settime(el);
-        },1000);
-    }
-    
-    
-    
-    </script>
 </body>
 </html>
