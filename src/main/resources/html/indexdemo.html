@@ -1,0 +1,93 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>诗意中华</title>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+    <script src="./secondPage/jquery-3.6.0.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <div class="top">
+        <div id="app">
+            <div class="search">
+                <select v-model="selectClassName" @change="selectClass($event)">
+                    <option value="id">id</option>
+                    <option value="作者">作者</option>
+                    <option value="内容">内容</option>
+                    <option value="朝代">朝代</option>
+                  </select>
+                <input type="text" placeholder="请输入..." name="" id="" value=""  v-model="inputText">
+                <button @click="search"><i>搜索</i></button>
+            </div>
+            
+            <div v-for="poem in poemList" style="text-align: center">
+
+                <div class="biaoti">
+                    <p>{{poem.title}}</p>
+                </div>
+                <div class="zuozhe">
+                    <p>{{poem.author.name}}</p>
+                </div>
+                <div class="zhengwen" v-for="line in poem.content">
+                    <p>{{line}}</p>
+                </div><br>
+                <br>
+            </div>
+        </div>
+    </div>
+    <script>
+        var app = new Vue({
+            el:"#app",
+            data:{
+                selectClassName:"id",
+                inputText:"",
+                poemList:[],
+            },
+            methods:{
+                selectClass:function(event){
+                    this.selectClassName=event.target.value;
+                    console.log(this.selectClassName);
+                },
+                search:function(){
+                    if(this.selectClassName=="id"){
+                        var that=this;
+                        axios.get("http://zhuaowei.top:8081/poetry/get?id="+this.inputText).then
+                        (function(response){
+                            console.log(response);
+                            that.poemList=response.data.data.content;
+                        });
+                        
+                    }
+                    else if(this.selectClassName=="作者"){
+                        var that=this;
+                        axios.get("http://zhuaowei.top:8081/poetry/name?authorName="+this.inputText).then
+                        (function(response){
+                            console.log(response);
+                            that.poemList=response.data.data.content;
+                        });
+                    }
+                    else if(this.selectClassName=="内容"){
+                        var that=this;
+                        axios.get("http://zhuaowei.top:8081/poetry/content?content="+this.inputText).then
+                        (function(response){
+                            console.log(response);
+                            that.poemList=response.data.data.content;
+                        });
+                    }
+                    else if(this.selectClassName=="朝代"){
+                        var that=this;
+                        axios.get("http://zhuaowei.top:8081/poetry/time?authorTime="+this.inputText).then
+                        (function(response){
+                            console.log(response);
+                            that.poemList=response.data.data.content;
+                        });
+                    }
+                }
+            },
+        })
+    </script>
+</body>
+</html>

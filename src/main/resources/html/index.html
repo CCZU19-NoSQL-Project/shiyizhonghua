@@ -27,7 +27,7 @@
                 <option value="标题">标题</option>
               </select>
             <input type="text" placeholder="请输入..." name="" id="" value="" >
-            <button><i>搜索</i></button>
+            <button id="search"><a href="indexdemo.html"><i>搜索</i></a></button>
         </div>
     </div>
     <div class="nav">
@@ -81,4 +81,16 @@
         </div>
     </div>
 </body>
+<script src="/static/jquery-3.6.0.min.js"></script>
+<script>
+    $("#search").click(function (){
+        $.get("http://zhuaowei.top:8081/poetry/type?type=诗","", function (data){
+            var poetryList = data.data.content;
+            for (var i = 0; i < 10; i++) {
+                console.log(poetryList[0].title);
+            }
+
+        }, "json");
+    })
+</script>
 </html>
